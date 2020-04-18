@@ -6,8 +6,8 @@
 
 <script>
 	export default {
-		methods:{
-			logout(){
+		methods: {
+			logout() {
 				window.sessionStorage.clear()
 				this.$router.push('/login')
 			}
