@@ -11,8 +11,8 @@
 		<el-card>
 			<el-row>
 				<el-col :span="8">
-					<el-input placeholder="请输入内容" >
-					    <el-button slot="append" icon="el-icon-search"></el-button>
+					<el-input placeholder="请输入内容" v-model="queryInfo.query" clearable @clear="getOrderList">
+					    <el-button slot="append" icon="el-icon-search" @click="getOrderList"></el-button >
 					  </el-input>
 				</el-col>
 			</el-row>
@@ -130,6 +130,7 @@
 		},
 		methods:{
 			async getOrderList(){
+				console.log(this.queryInfo.query)
 				const {data:res}=await this.$http.get('orders',{params:this.queryInfo})
 				if(res.meta.status!==200){
 					return this.$message.error('获取订单列表失败')

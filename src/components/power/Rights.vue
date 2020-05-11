@@ -30,7 +30,7 @@
 		data(){
 			return{
 				//所有的权限列表
-				RightsList:{}
+				RightsList:[]
 			}
 		},
 		created(){
@@ -44,6 +44,7 @@
 				if(res.meta.status!==200){
 					return this.$message.error('获取权限列表失败')
 				}
+				console.log(res.data)
 				this.RightsList=res.data
 			}
 		}

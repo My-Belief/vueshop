@@ -78,7 +78,7 @@
 		
 		
 		<!-- 修改用户界面 -->
-		<el-dialog title="修改用户" :visible.sync="editDialogVisible" width="50%" @click="editDialogClosed">
+		<el-dialog title="修改用户" :visible.sync="editDialogVisible" width="50%" @close="editDialogClosed">
 			<!-- 内容主体区域 -->
 			<el-form :model="editForm" :rules="editFormRules" ref="editFormRef" label-width="70px">
 				<el-form-item label="用户名">
@@ -272,7 +272,7 @@
 				this.total = res.data.total
 
 			},
-			// 监听pagesize改变的时间
+			// 监听pagesize改变的事件
 			handleSizeChange(newSize) {
 				this.queryInfo.pagesize = newSize
 				this.getUserList()
